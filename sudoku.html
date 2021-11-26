@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    
+    <style>
+        .grid-container {
+                width: 300px;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                background-color: #2196F3;
+                padding: 3px;
+            }
+            .grid-item {
+                background-color: rgba(255, 255, 255, 0.8);
+                border: 1px solid rgba(0, 0, 0, 0.8);
+                padding: 5px;
+                font-size: 5px;
+                text-align: center;
+                display: grid;
+            }
+            .container{
+                display: flex;
+                justify-content: center;
+            }
+            input{
+                width: 25px;
+                height: 25px;
+                font-size: larger;
+                font-weight: bold;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Sudoku</h1>
+    <div class="container">
+    <table>
+        <tr>
+            
+            <th><input type="text" id="00" value="" style=" border-left: 2px solid red; border-top: 2px solid red;"></th>
+            <th><input type="text" id="01" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="02" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="03" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="04" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="05" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="06" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="07" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="08" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="10" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="11" style="border-top: 2px solid black;" ></th>
+            <th><input type="text" id="12" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="13" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="14" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="15" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="16" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="17" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="18" style="border-right: 2px solid red;"></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="20" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="21" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="22" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="23" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="24" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="25" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="26" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="27" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="28" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+
+        </tr>
+
+        <tr>
+            
+            <th><input type="text" id="30" value="" style=" border-left: 2px solid red; border-top: 2px solid red;"></th>
+            <th><input type="text" id="31" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="32" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="33" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="34" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="35" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="36" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="37" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="38" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="40" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="41" style="border-top: 2px solid black;" ></th>
+            <th><input type="text" id="42" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="43" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="44" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="45" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="46" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="47" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="48" style="border-right: 2px solid red;"></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="50" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="51" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="52" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="53" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="54" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="55" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="56" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="57" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="58" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+
+        </tr>
+
+        <tr>
+            
+            <th><input type="text" id="60" value="" style=" border-left: 2px solid red; border-top: 2px solid red;"></th>
+            <th><input type="text" id="61" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="62" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="63" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="64" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="65" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+            <th><input type="text" id="66" style="border-top: 2px solid red; border-left: 2px solid red;"></th>
+            <th><input type="text" id="67" style="border-top: 2px solid red;" ></th>
+            <th><input type="text" id="68" style="border-top: 2px solid red; border-right: 2px solid red;" ></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="70" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="71" style="border-top: 2px solid black;" ></th>
+            <th><input type="text" id="72" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="73" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="74" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="75" style="border-right: 2px solid red;"></th>
+            <th><input type="text" id="76" style="border-left: 2px solid red;"></th>
+            <th><input type="text" id="77" style="border-top: 2px solid black;"></th>
+            <th><input type="text" id="78" style="border-right: 2px solid red;"></th>
+        </tr>
+
+        <tr>
+            <th><input type="text" id="80" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="81" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="82" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="83" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="84" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="85" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="86" style="border-left:2px solid red ; border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="87" style="border-bottom: 2px solid red;"></th>
+            <th><input type="text" id="88" style="border-right:2px solid red ; border-bottom: 2px solid red;"></th>
+
+        </tr>
+
+    </table>
+    </div>
+    <div style="display: flex; justify-content: space-around; margin-left: 30%; margin-right: 30%; margin-top: 50px;">
+        <button id="checkBtn" style="background-color: rgb(255, 97, 6); color: white; border: none; width: 100px; height: 25px; cursor: pointer;">Check</button>
+        <button id="solveBtn" style="background-color: green; color: white; border: none; width: 100px; height: 25px; cursor: pointer;">Solve</button>
+        <button id="resetBtn" style="background-color: red; color: white; border: none; width: 100px; height: 25px; cursor: pointer;">Reset</button>
+    </div>
+    <script src="sudoku.js"></script>
+</body>
+</html>
